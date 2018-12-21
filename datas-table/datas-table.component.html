@@ -1,0 +1,19 @@
+<p>Hello ---- {{dataUrl}} ---------- {{columnNames}} ----- {{ keys }}</p>
+
+<table datatable [dtOptions]="dtOptions" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th *ngFor="let columnName of columnNames">{{ columnName }}</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="response?.length != 0">
+      <tr *ngFor="let data of response">
+          <td *ngFor="let key of keys">{{ data[key] }}</td>         
+      </tr>
+  </tbody>
+  <tbody *ngIf="response?.length == 0">
+    <tr>
+      <td colspan="3" class="no-data-available">No data!</td>
+    </tr>
+  <tbody>
+</table>
